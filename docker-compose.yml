@@ -1,0 +1,12 @@
+version: "3.7"
+services:
+  jupyterlab:
+    container_name: jupyterlab
+    build: .
+    ports:
+      - "8888:8888"
+    environment:
+      - JUPYTER_ENABLE_LAB=yes
+    volumes:
+      - ./work:/home/jovyan/work
+    command: start-notebook.sh --NotebookApp.token='' --NotebookApp.password='' --NotebookApp.disable_check_xsrf=True
